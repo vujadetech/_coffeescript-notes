@@ -16,7 +16,7 @@ nl()
 # eqModK is true iff a = b (mod k).
 eqModK = (a, b, k) -> (mod a, k) == (mod b, k)
 # eqClass returns the set of n in [a]_j (where [a]_j represents the [ x | x ~ a (mod j)])
-# and in [b]_k that are also in the range [a..ub].
+# and in [b]_k that are also in the range [a..ub], ub = "upper bound".
 eqClass = (a, j, b, k, ub) -> (i for i in [a..ub] by j when eqModK(i, b, k))
 let xs = eqClass(1, 3, 2, 5, 100)
 # => [ 7, 22, 37, 52, 67, 82, 97 ], that is,
