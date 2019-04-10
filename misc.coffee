@@ -1,4 +1,6 @@
 
+cl = (s) -> console.log(s)
+
 xs = [0..3]
 
 # car = (first, rest...) -> first
@@ -17,8 +19,8 @@ pow = (Base, Expt) ->
 # Racket/scheme/lisp style cond as CS switch:
 pow2 = (Base, Expt) ->
   switch
-    when Base == 0 then return 0
     when Expt == 0 then return 1
+    when Base == 0 then return 0 # Prolly don't need this but it eliminates needless recursion for say, 0^1000.
     when Expt == 1 then return Base
     else return Base * pow2(Base, Expt - 1)
 
@@ -30,3 +32,4 @@ len = (xs) ->
 
 cl("length of xs = #{len(xs)}")
 cl("2^10 = #{pow2(2,10)}")
+cl("0^0 = #{pow2(0, 0)}")
